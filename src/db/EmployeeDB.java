@@ -3,29 +3,41 @@ package db;
 import models.Employee;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 import util.HRManagerUtil;
 
 public class EmployeeDB {
 
     private List<Employee> employees;
 
+
     public EmployeeDB() {
         addMockData();
     }
 
     public void addEmployee(Employee employee) {
-        //TODO: Implement
+        if(employee!=null) {
+            employees.add(employee);
+
+        }
     }
 
     public void deleteEmployee(Employee employee) {
-        //TODO: Implement
+        if(employee!=null)
+            employees.remove(employee);
     }
 
     public void updateEmployee(Employee employee) {
-        //TODO: Implement
+        boolean updated = false;
+        if(employee!=null) {
+            for(int i =0; i<employees.size() && !updated; i++){
+                if(employees.get(i).equals(employee)){
+                    employees.set(i, employee);
+                    updated = true;
+                }
+            }
+        }
     }
 
     private void addMockData() {
@@ -62,6 +74,11 @@ public class EmployeeDB {
     }
 
     public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public List<Employee> getEmployeesBySallery(){
+        Collections.sort(employees, Employee.employeeComparatorSallery);
         return employees;
     }
 }

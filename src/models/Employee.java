@@ -2,7 +2,9 @@ package models;
 
 import util.HRManagerUtil;
 
+import java.util.Comparator;
 import java.util.Date;
+import java.util.Objects;
 
 public class Employee {
 
@@ -80,4 +82,22 @@ public class Employee {
     public String getId() {
         return id;
     }
+
+    //COMPERATORS
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(id, employee.id);
+    }
+
+    public static Comparator<Employee> employeeComparatorSallery = new Comparator<Employee>() {
+        public int compare(Employee e1, Employee e2) {
+            Double sallery1 = e1.getSalary();
+            Double sallery2 = e2.getSalary();
+
+            return sallery1.compareTo(sallery2);
+        }
+    };
 }
