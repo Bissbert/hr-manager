@@ -100,10 +100,10 @@ public class Employee {
             return sallery1.compareTo(sallery2);
         }
     };
-    public static Comparator<Employee> employeeComparatorAgetea = new Comparator<Employee>() {
+    public static Comparator<Employee> employeeComparatorAge = new Comparator<Employee>() {
         public int compare(Employee e1, Employee e2) {
-            Double sallery1 = e1.getSalary();
-            Double sallery2 = e2.getSalary();
+            Date sallery1 = e1.birthdate;
+            Date sallery2 = e2.getBirthdate();
 
             return sallery1.compareTo(sallery2);
         }
