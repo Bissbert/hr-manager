@@ -77,7 +77,7 @@ public class View {
      */
     public void showListEmployees() {
         outEmployees();
-        System.out.println("average income: "+getAverageIncome());
+        System.out.println("average income: " + getAverageIncome());
         System.out.print("press enter to continue...");
         try {
             System.in.read();
@@ -99,7 +99,7 @@ public class View {
      * @param employee to show
      */
     private void showEmployee(Employee employee) {
-        System.out.println("id = " + outFormat(employee.getId(),20) + "name = " + outFormat(new String(employee.getPrename() + " " + employee.getSurname()),30) + "birthday = " + outFormat(HRManagerUtil.formatter.format(employee.getBirthdate()),15) + "job description = " + outFormat(employee.getJobDescription(),40) + "salary = " + outFormat(employee.getSalary()+"",15) + "employment date = " + outFormat(HRManagerUtil.formatter.format(employee.getEmploymentDate()),20));
+        System.out.println("id = " + outFormat(employee.getId(), 20) + "name = " + outFormat(new String(employee.getPrename() + " " + employee.getSurname()), 30) + "birthday = " + outFormat(HRManagerUtil.formatter.format(employee.getBirthdate()), 15) + "job description = " + outFormat(employee.getJobDescription(), 40) + "salary = " + outFormat(employee.getSalary() + "", 15) + "employment date = " + outFormat(HRManagerUtil.formatter.format(employee.getEmploymentDate()), 20));
     }
 
     private void outEmployees() {
@@ -140,15 +140,15 @@ public class View {
         return date;
     }
 
-    private Double getAverageIncome(){
+    private Double getAverageIncome() {
         Double total = 0D;
         List<Employee> employeeList = db.getEmployees();
-        for(Employee employee: employeeList)
-            total+=employee.getSalary();
-        return total/employeeList.size();
+        for (Employee employee : employeeList)
+            total += employee.getSalary();
+        return total / employeeList.size();
     }
 
-    private String outFormat(String in, Integer length){
-        return String.format("%-"+length+"s", in);
+    private String outFormat(String in, Integer length) {
+        return String.format("%-" + length + "s", in);
     }
 }
