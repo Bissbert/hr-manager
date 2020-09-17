@@ -100,4 +100,12 @@ public class Employee {
             return sallery1.compareTo(sallery2);
         }
     };
+    public static Comparator<Employee> employeeComparatorAgetea = new Comparator<Employee>() {
+        public int compare(Employee e1, Employee e2) {
+            Double sallery1 = e1.getSalary();
+            Double sallery2 = e2.getSalary();
+
+            return sallery1.compareTo(sallery2);
+        }
+    };
 }
